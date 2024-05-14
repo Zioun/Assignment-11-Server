@@ -99,7 +99,7 @@ async function run() {
       const result = await volunteerCollection.findOne(query);
       res.send(result);
     });
-    
+
 
     // ! update a single volunteer data from db using be a volunteer id
     app.get("/update/:id", async (req, res) => {
@@ -108,6 +108,7 @@ async function run() {
       const result = await volunteerCollection.findOne(query);
       res.send(result);
     });
+    
 
     // ! Get all volunteers posted by a specific user
     app.get("/volunteers/:email", verifyToken, async (req, res) => {
