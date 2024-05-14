@@ -108,7 +108,7 @@ async function run() {
       const result = await volunteerCollection.findOne(query);
       res.send(result);
     });
-    
+
 
     // ! Get all volunteers posted by a specific user
     app.get("/volunteers/:email", verifyToken, async (req, res) => {
@@ -121,6 +121,7 @@ async function run() {
       const result = await volunteerCollection.find(query).toArray();
       res.send(result);
     });
+    
 
     // ! Save a volunteers data in database
     app.post("/volunteerpost", async (req, res) => {
