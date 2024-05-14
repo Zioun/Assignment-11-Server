@@ -81,6 +81,7 @@ async function run() {
         .clearCookie("token", {...cookieOption, maxAge: 0})
         .send({ success: true });
     });
+    
 
     // ! Get all volunteers data from db
     app.get("/volunteer", async (req, res) => {
@@ -180,7 +181,7 @@ async function run() {
       const result = await beaVolCollection.find(query).toArray();
       res.send(result);
     });
-    
+
 
     // ! Cencle a volunteer data from db
     app.delete("/req-volunteer/:id", async (req, res) => {
