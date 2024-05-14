@@ -121,7 +121,7 @@ async function run() {
       const result = await volunteerCollection.find(query).toArray();
       res.send(result);
     });
-    
+
 
     // ! Save a volunteers data in database
     app.post("/volunteerpost", async (req, res) => {
@@ -129,6 +129,7 @@ async function run() {
       const result = await volunteerCollection.insertOne(volunteerData);
       res.send(result);
     });
+    
 
     // ! update a volunteer data from db
     app.put("/update/:id", async (req, res) => {
