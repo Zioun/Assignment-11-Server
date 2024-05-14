@@ -91,7 +91,7 @@ async function run() {
       res.send(result);
     });
 
-    
+
     // ! Get a single volunteer data from db using volunteer id
     app.get("/volunteer/:id", async (req, res) => {
       const id = req.params.id;
@@ -99,6 +99,7 @@ async function run() {
       const result = await volunteerCollection.findOne(query);
       res.send(result);
     });
+    
 
     // ! update a single volunteer data from db using be a volunteer id
     app.get("/update/:id", async (req, res) => {
