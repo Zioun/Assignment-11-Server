@@ -129,7 +129,7 @@ async function run() {
       const result = await volunteerCollection.insertOne(volunteerData);
       res.send(result);
     });
-    
+
 
     // ! update a volunteer data from db
     app.put("/update/:id", async (req, res) => {
@@ -149,6 +149,7 @@ async function run() {
       );
       res.send(result);
     });
+    
 
     // ! Delete a volunteer data from db
     app.delete("/volunteers/:id", async (req, res) => {
