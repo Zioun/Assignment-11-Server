@@ -167,7 +167,7 @@ async function run() {
       const result = await beaVolCollection.insertOne(bidData);
       res.send(result);
     });
-    
+
 
     // ! Get be a volunteer data from db using be a volunteer id
     app.get("/be-a-volunteer/:email", verifyToken, async (req, res) => {
@@ -180,6 +180,7 @@ async function run() {
       const result = await beaVolCollection.find(query).toArray();
       res.send(result);
     });
+    
 
     // ! Cencle a volunteer data from db
     app.delete("/req-volunteer/:id", async (req, res) => {
