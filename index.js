@@ -91,6 +91,7 @@ async function run() {
       res.send(result);
     });
 
+    
     // ! Get a single volunteer data from db using volunteer id
     app.get("/volunteer/:id", async (req, res) => {
       const id = req.params.id;
