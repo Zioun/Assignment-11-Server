@@ -149,7 +149,7 @@ async function run() {
       );
       res.send(result);
     });
-    
+
 
     // ! Delete a volunteer data from db
     app.delete("/volunteers/:id", async (req, res) => {
@@ -167,6 +167,7 @@ async function run() {
       const result = await beaVolCollection.insertOne(bidData);
       res.send(result);
     });
+    
 
     // ! Get be a volunteer data from db using be a volunteer id
     app.get("/be-a-volunteer/:email", verifyToken, async (req, res) => {
