@@ -81,7 +81,6 @@ async function run() {
         .clearCookie("token", {...cookieOption, maxAge: 0})
         .send({ success: true });
     });
-    
 
     // ! Get all volunteers data from db
     app.get("/volunteer", async (req, res) => {
@@ -92,7 +91,6 @@ async function run() {
       res.send(result);
     });
 
-
     // ! Get a single volunteer data from db using volunteer id
     app.get("/volunteer/:id", async (req, res) => {
       const id = req.params.id;
@@ -101,7 +99,6 @@ async function run() {
       res.send(result);
     });
 
-
     // ! update a single volunteer data from db using be a volunteer id
     app.get("/update/:id", async (req, res) => {
       const id = req.params.id;
@@ -109,7 +106,6 @@ async function run() {
       const result = await volunteerCollection.findOne(query);
       res.send(result);
     });
-
 
     // ! Get all volunteers posted by a specific user
     app.get("/volunteers/:email", verifyToken, async (req, res) => {
@@ -123,14 +119,12 @@ async function run() {
       res.send(result);
     });
 
-
     // ! Save a volunteers data in database
     app.post("/volunteerpost", async (req, res) => {
       const volunteerData = req.body;
       const result = await volunteerCollection.insertOne(volunteerData);
       res.send(result);
     });
-
 
     // ! update a volunteer data from db
     app.put("/update/:id", async (req, res) => {
@@ -151,7 +145,6 @@ async function run() {
       res.send(result);
     });
 
-
     // ! Delete a volunteer data from db
     app.delete("/volunteers/:id", async (req, res) => {
       const id = req.params.id;
@@ -169,7 +162,6 @@ async function run() {
       res.send(result);
     });
 
-
     // ! Get be a volunteer data from db using be a volunteer id
     app.get("/be-a-volunteer/:email", verifyToken, async (req, res) => {
       const tokenEmail = req.user.email;
@@ -182,8 +174,7 @@ async function run() {
       res.send(result);
     });
 
-
-    // ! Cencle a volunteer data from db
+    // ! Cencel a volunteer data from db
     app.delete("/req-volunteer/:id", async (req, res) => {
       const id = req.params.id;
       const query = { _id: new ObjectId(id) };
@@ -191,17 +182,17 @@ async function run() {
       res.send(result);
     });
 
-    // app.get('/applied-post/:email', async(req, res)=>{
-    //   const email = req.params.email;
-    //   const query = {"email": email};
-    //   const result = await beaVolCollection.find(query).toArray();
-    //   res.send(result);
-    // })
+    app.get('/applied-post', async(req, res)=>{
+      const query = req.body;
+      const result = await beaVolCollection.find(query).toArray();
+      res.send(result);
+    })
 
     // ! Get all volunteers data from db for pagination
     app.get("/all-volunteer", async (req, res) => {
       const size = parseInt(req.query.size) || 10;
-      const page = parseInt(req.query.page) || 1;
+      console.log(size);
+      const page = parseInt(req.query.page) || 6;
       const search = req.query.search || "";
       const filter = req.query.filter || "";
       let query = {
